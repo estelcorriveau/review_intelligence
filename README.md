@@ -12,10 +12,10 @@ This tool does that analysis in seconds and hands marketing back something usabl
 
 ## What it does
 The app runs a four-stage LLM pipeline:
-**Classify:** Tags each review by sentiment (positive / mixed / negative) and theme (plot, characters, pacing, writing style, ending, emotional impact).
-**Extract:** It then pulls out the specific praises, complaints, and short verbatim phrases that would work as marketing quotes.
-**Summarize:** It synthesizes all the analyzed data into a ~200-word marketing brief.
-**Generate:** Finally, it produces the 3 strongest pull-quotes, a back-cover blurb, and two social media posts.
+- **Classify:** Tags each review by sentiment (positive / mixed / negative) and theme (plot, characters, pacing, writing style, ending, emotional impact).
+- **Extract:** It then pulls out the specific praises, complaints, and short verbatim phrases that would work as marketing quotes.
+- **Summarize:** It synthesizes all the analyzed data into a ~200-word marketing brief.
+- **Generate:** Finally, it produces the 3 strongest pull-quotes, a back-cover blurb, and two social media posts.
 The front-end (Streamlit) lets a non-technical user paste reviews, click a button, and read the results laid out on a page. No code required. ☺️
 
 ---
@@ -30,9 +30,9 @@ Every stage is an LLM API call with a carefully written prompt that constrains t
 ## Results
 I evaluated the classifier against a personally hand-labeled golden standard: I read 20 sample reviews and labeled each one's sentiment myself, then compared the classifier's output to my labels.
 
-**Accuracy:** 18/20 = 90% agreement with my own labels
-**Speed:** ~1.4 seconds per review
-**Cost:** ~$0.002 per review for the classification step (Claude Opus 4.8)
+- **Accuracy:** 18/20 = 90% agreement with my own labels
+- **Speed:** ~1.4 seconds per review
+- **Cost:** ~$0.002 per review for the classification step (Claude Opus 4.8)
 
 I will admit the two disagreements were both on genuinely ambiguous reviews. For example, a glowing review that docks one star for a minor subplot, and a review that loved the book until an ending the reader hated. On every clear-cut review, the classifier agreed with me. This suggests the model is reasoning about sentiment rather than keyword-matching, and that accuracy here is partly bounded by how subjective the "correct" label even is. But then again, that’s publishing in a nutshell. 
 
